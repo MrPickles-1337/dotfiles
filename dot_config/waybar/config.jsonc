@@ -1,6 +1,7 @@
 {
   "position": "top", 
   "height": 25,
+  "layer": "top",
   
   "modules-left":   ["wlr/workspaces"],
   "modules-center": ["clock"],
