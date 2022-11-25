@@ -109,3 +109,4 @@ path+=/home/kirill/Android/Sdk/platform-tools
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
+path+=/home/kirill/flutter/bin
