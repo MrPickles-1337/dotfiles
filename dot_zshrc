@@ -2,7 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 export TERM=xterm-256color
 
-export NNN_FIFO=/tmp/nnn.fifo
 
 ZSH_THEME="robbyrussell"
 
@@ -29,4 +28,9 @@ path+=/home/kirill/flutter/bin
 alias nv=nvim
 alias icat="kitty +kitten icat"
 
+
+alias n="nnn -de"
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG="p:preview-tui"
+export SPLIT="v"
 
