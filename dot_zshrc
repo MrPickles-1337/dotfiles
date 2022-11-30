@@ -111,3 +111,4 @@ path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
 path+=/home/kirill/flutter/bin
 alias nv=nvim
+alias icat="kitty +kitten icat"
