@@ -20,6 +20,7 @@ function chpwd {
 	emulate -L zsh
 	ls
 }
+
 path+=/home/kirill/Android/Sdk/platform-tools
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
@@ -34,3 +35,15 @@ export NNN_FIFO=/tmp/nnn.fifo
 export NNN_PLUG="p:preview-tui"
 export SPLIT="v"
 
+function ncd {
+  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1]; then
+    echo "nnn is already running"
+    return
+  fi
+  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+  n "$@"
+  if [ -f "$NNN_TMPFILE" ]; then
+    . "$NNN_TMPFILE"
+    rm -f "$NNN_TMPFILE" > /dev/null
+  fi
+}
