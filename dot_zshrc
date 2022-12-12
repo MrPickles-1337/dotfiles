@@ -26,8 +26,14 @@ path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
 path+=/home/kirill/flutter/bin
+path+=/home/kirill/.cargo/bin
+
+
+
 alias nv=nvim
 alias icat="kitty +kitten icat"
+alias py=python
+alias neovide="WINIT_UNIX_BACKEND=x11 neovide"
 
 
 alias n="nnn -de"
