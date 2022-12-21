@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('numToStr/Comment.nvim')
+    use('windwp/nvim-autopairs')
 
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
