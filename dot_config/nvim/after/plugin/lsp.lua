@@ -20,6 +20,7 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -35,4 +36,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 end)
 
+lsp.nvim_workspace()
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
