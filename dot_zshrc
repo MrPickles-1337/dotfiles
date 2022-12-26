@@ -9,7 +9,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git)
+plugins=(git rust docker)
 
 source $ZSH/oh-my-zsh.sh
 
