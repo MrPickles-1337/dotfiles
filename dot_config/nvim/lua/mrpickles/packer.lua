@@ -15,6 +15,7 @@ return require("packer").startup(function(use)
     use('numToStr/Comment.nvim')
     use('windwp/nvim-autopairs')
     use('akinsho/toggleterm.nvim')
+    use('lukas-reineke/lsp-format.nvim')
 
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -23,6 +24,8 @@ return require("packer").startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    use 'nvim-tree/nvim-web-devicons'
+    use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
