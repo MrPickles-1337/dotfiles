@@ -52,3 +52,4 @@ function ncd {
     rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
+export PATH=$PATH:/home/kirill/.spicetify
