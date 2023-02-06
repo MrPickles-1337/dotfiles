@@ -1,3 +1,11 @@
+{{ if eq .chezmoi.hostname "archlinux-kirill" -}}
+
+preload = /home/kirill/wlp.png
+
+wallpaper = DP-1,/home/kirill/wlp.png
+
+{{ else if eq .chezmoi.hostname "arch-pc-home" -}}
+
 preload = /home/kirill/Wallpapers/*
 
 wallpaper = DP-1,/home/kirill/Wallpapers/wallhaven-e7wvrr.png
@@ -5,4 +13,5 @@ wallpaper = DP-1,/home/kirill/Wallpapers/wallhaven-e7wvrr.png
 wallpaper = HDMI-A-1,/home/kirill/Wallpapers/current.jpg
 wallpaper = DP-3,/home/kirill/Wallpapers/current.jpg
 
+{{ end -}}
 
