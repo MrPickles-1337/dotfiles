@@ -6,6 +6,7 @@ return require("packer").startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'folke/tokyonight.nvim'
     use 'maxmx03/FluoroMachine.nvim'
 
@@ -17,8 +18,10 @@ return require("packer").startup(function(use)
     use('akinsho/toggleterm.nvim')
     use('lukas-reineke/lsp-format.nvim')
 
-
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { 'mfussenegger/nvim-dap' }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use { "folke/neodev.nvim" }
     use 'arkav/lualine-lsp-progress'
     use {
         'nvim-lualine/lualine.nvim',

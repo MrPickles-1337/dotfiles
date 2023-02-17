@@ -20,9 +20,9 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
-local on_attach = function(client, bufnr)
+local my_on_attach = function(client, buffer)
     require("lsp-format").on_attach(client)
-    local opts = { buffer = bufnr, remap = false }
+    local opts = { buffer = buffer, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -36,8 +36,13 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 end
 
-lsp.on_attach(on_attach)
-require("lspconfig").gopls.setup { on_attach = on_attach }
+
+require("neodev").setup {
+    library = { plugin = { "nvim-dap-ui" }, types = true }
+}
+
+lsp.on_attach(my_on_attach)
+require("lspconfig").gopls.setup { on_attach = my_on_attach }
 
 lsp.nvim_workspace()
 lsp.setup()
@@ -45,3 +50,41 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+require("flutter-tools").setup {
+    ui = {
+        border = "rounded",
+    },
+    decorations = {
+        statusline = {
+            app_version = true,
+            device = true,
+        }
+    },
+    debugger = {
+        enabled = true,
+        run_via_dap = true,
+        regiseter_configurations = function(_)
+            require("dap").configurations.dart = { {
+                name = "KUBIK",
+                request = "launch",
+                type = "dart",
+            }
+            }
+            require("dap.ext.vscode").load_launchjs()
+        end
+    },
+    widget_guides = {
+        enabled = true,
+    },
+    outline = {
+        auto_open = true
+    },
+    lsp = {
+        on_attach = my_on_attach,
+        color = {
+            enabled = true,
+            virtual_text = true,
+        }
+    },
+}
