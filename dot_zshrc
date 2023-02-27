@@ -20,16 +20,23 @@ function chpwd {
 	ls
 }
 
+#rust replacemnts
+alias ls=exa
+alias du=dust
+alias cat=bat
+alias grep=rg
+
 path+=/home/kirill/Android/Sdk/platform-tools
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
 path+=/home/kirill/dev/flutter/bin
 path+=/home/kirill/.cargo/bin
+path+=/home/kirill/.spicetify
 
 
 
-alias nv=nvim
+alias nv="nvim ."
 alias icat="kitty +kitten icat"
 alias py=python
 alias neovide="WINIT_UNIX_BACKEND=x11 neovide"
@@ -52,4 +59,9 @@ function ncd {
     rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
-export PATH=$PATH:/home/kirill/.spicetify
+
+alias fba="flutter build android --release"
+alias fc="flutter clean"
+
+eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(starship init zsh)"
