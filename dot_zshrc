@@ -11,7 +11,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git rust docker zsh-vi-mode flutter)
+plugins=(git rust docker vi-mode flutter)
 
 source $ZSH/oh-my-zsh.sh
 
