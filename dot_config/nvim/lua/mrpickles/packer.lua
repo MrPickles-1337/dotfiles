@@ -6,13 +6,12 @@ return require("packer").startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use {'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
     use 'folke/tokyonight.nvim'
     use 'maxmx03/FluoroMachine.nvim'
 
     use('nvim-treesitter/nvim-treesitter', { run = ":TSUpdate" })
     use('nvim-treesitter/playground')
-    use('theprimeagen/harpoon')
     use('numToStr/Comment.nvim')
     use('windwp/nvim-autopairs')
     use('akinsho/toggleterm.nvim')
