@@ -1,33 +1,36 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
-    use "wbthomason/packer.nvim"
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
-    use 'folke/tokyonight.nvim'
-    use 'maxmx03/FluoroMachine.nvim'
 
     use('nvim-treesitter/nvim-treesitter', { run = ":TSUpdate" })
-    use('nvim-treesitter/playground')
-    use('numToStr/Comment.nvim')
-    use('windwp/nvim-autopairs')
-    use('akinsho/toggleterm.nvim')
-    use('lukas-reineke/lsp-format.nvim')
+
+    use 'wbthomason/packer.nvim'
+    use 'folke/tokyonight.nvim'
+    use 'maxmx03/FluoroMachine.nvim'
+    use 'nvim-treesitter/playground'
+    use 'numToStr/Comment.nvim'
+    use 'windwp/nvim-autopairs'
+    use 'akinsho/toggleterm.nvim'
+    use 'lukas-reineke/lsp-format.nvim'
+    use 'mfussenegger/nvim-dap'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'kylechui/nvim-surround'
+    use 'folke/neodev.nvim'
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use { 'mfussenegger/nvim-dap' }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use { "folke/neodev.nvim" }
     use 'arkav/lualine-lsp-progress'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use 'nvim-tree/nvim-web-devicons'
     use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
+
 
     use {
         'VonHeikemen/lsp-zero.nvim',
