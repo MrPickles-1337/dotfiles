@@ -17,11 +17,13 @@ return require("packer").startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'akinsho/toggleterm.nvim'
     use 'lukas-reineke/lsp-format.nvim'
+    use 'mfussenegger/nvim-dap'
     use 'nvim-tree/nvim-web-devicons'
     use 'kylechui/nvim-surround'
     use 'folke/neodev.nvim'
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'arkav/lualine-lsp-progress'
     use {
         'nvim-lualine/lualine.nvim',
