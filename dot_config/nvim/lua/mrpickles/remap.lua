@@ -6,8 +6,8 @@ map("v", "K", ":m '<-2<CR>gv=gv")
 map("v", "J", ":m '>+1<CR>gv=gv")
 
 map("x", "<leader>p", "\"_dP")
-map("n", "<leader>d", "\"_dP")
-map("v", "<leader>d", "\"_dP")
+map("n", "<leader>x", "\"_dP")
+map("v", "<leader>x", "\"_dP")
 
 map("n", "<leader>y", "\"+y")
 map("v", "<leader>y", "\"+y")
