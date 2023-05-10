@@ -1,6 +1,7 @@
 local lsp = require('lsp-zero')
 require("lsp-format").setup {}
 
+
 lsp.preset('recommended')
 
 lsp.ensure_installed({
@@ -38,7 +39,6 @@ end
 
 
 require("neodev").setup {
-    library = { plugin = { "nvim-dap-ui" }, types = true }
 }
 
 lsp.on_attach(my_on_attach)
@@ -61,19 +61,19 @@ require("flutter-tools").setup {
             device = true,
         }
     },
-    debugger = {
-        enabled = true,
-        run_via_dap = true,
-        regiseter_configurations = function(_)
-            require("dap").configurations.dart = { {
-                name = "KUBIK",
-                request = "launch",
-                type = "dart",
-            }
-            }
-            require("dap.ext.vscode").load_launchjs()
-        end
-    },
+    -- debugger = {
+    --     enabled = true,
+    --     run_via_dap = true,
+    --     regiseter_configurations = function(_)
+    --         require("dap").configurations.dart = { {
+    --             name = "KUBIK",
+    --             request = "launch",
+    --             type = "dart",
+    --         }
+    --         }
+    --         require("dap.ext.vscode").load_launchjs()
+    --     end
+    -- },
     widget_guides = {
         enabled = true,
     },
