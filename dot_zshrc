@@ -1,10 +1,11 @@
-export ZSH="$XDG_DATA_HOME/oh-my-zsh"
-export EDITOR=nvim
-export TERM=xterm-256color
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
+
+export ZSH="$XDG_DATA_HOME/oh-my-zsh"
+export EDITOR=nvim
+export TERM=xterm-256color
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export ANDROID_USER_HOME=$XDG_DATA_HOME/android
@@ -42,8 +43,9 @@ alias ls=exa
 alias du=dust
 alias cat=bat
 alias grep=rg
+alias lg=lazygit
 
-path+=/home/kirill/Android/Sdk/platform-tools
+path+=/home/kirill/dev/AndroidSDK/platform-tools/
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
