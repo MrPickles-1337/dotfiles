@@ -37,14 +37,6 @@ function chpwd {
 	emulate -L zsh
 	ls
 }
-
-#rust replacemnts
-alias ls=exa
-alias du=dust
-alias cat=bat
-alias grep=rg
-alias lg=lazygit
-
 path+=/home/kirill/dev/AndroidSDK/platform-tools/
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
@@ -53,7 +45,14 @@ path+=/home/kirill/dev/flutter/bin
 path+=$CARGO_HOME/bin
 path+=/home/kirill/.spicetify
 
+#rust replacemnts
+alias ls=exa
+alias du=dust
+alias cat=bat
+alias grep=rg
+alias lg=lazygit
 
+alias fla="flutter analyze"
 
 alias nv="nvim ."
 alias icat="kitty +kitten icat"
