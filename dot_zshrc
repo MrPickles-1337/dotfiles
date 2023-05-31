@@ -37,7 +37,7 @@ function chpwd {
 	emulate -L zsh
 	ls
 }
-path+=/home/kirill/dev/AndroidSDK/platform-tools/
+path+=/home/kirill/dev/AndroidSDK/platform-tools
 path+=/home/kirill/.bin
 path+=/home/kirill/.pub-cache/bin
 path+=/home/kirill/.local/bin
