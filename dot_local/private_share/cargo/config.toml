@@ -1,2 +1,2 @@
 [build]
-rustc-wrapper = "/home/kirill/.cargo/bin/sccache"
+rustc-wrapper = "/home/kirill/.local/share/cargo/bin/sccache"
