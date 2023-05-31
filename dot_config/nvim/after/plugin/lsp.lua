@@ -64,15 +64,6 @@ require("flutter-tools").setup {
     debugger = {
         enabled = true,
         run_via_dap = true,
-        regiseter_configurations = function(_)
-            require("dap").configurations.dart = { {
-                name = "KUBIK",
-                request = "launch",
-                type = "dart",
-            }
-            }
-            require("dap.ext.vscode").load_launchjs()
-        end
     },
     widget_guides = {
         enabled = true,
