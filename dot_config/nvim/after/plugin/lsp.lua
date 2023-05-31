@@ -78,7 +78,8 @@ require("flutter-tools").setup {
         enabled = true,
     },
     outline = {
-        auto_open = true
+        auto_open = true,
+        open_cmd = "set splitright | 50vnew"
     },
     lsp = {
         on_attach = my_on_attach,
