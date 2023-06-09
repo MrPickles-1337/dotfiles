@@ -1,11 +1,8 @@
 local lsp = require('lsp-zero')
+local lspconfig = require("lspconfig")
 require("lsp-format").setup {}
 
 lsp.preset('recommended')
-
-lsp.ensure_installed({
-    'rust_analyzer',
-})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -15,6 +12,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
 })
+
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
@@ -41,8 +39,32 @@ require("neodev").setup {
     library = { plugin = { "nvim-dap-ui" }, types = true }
 }
 
+local opts = {
+    inlay_hints = {
+        auto = true,
+        show_parameter_hints = false,
+        parameter_hints_prefix = "",
+        other_hints_prefix = "",
+    },
+    server = {
+        on_attach = my_on_attach,
+        cmd = {
+            "rustup", "run", "stable", "rust-analyzer",
+        },
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+            },
+        }
+    },
+}
+
+require("rust-tools").setup(opts)
+
 lsp.on_attach(my_on_attach)
-require("lspconfig").gopls.setup { on_attach = my_on_attach }
+lspconfig.gopls.setup { on_attach = my_on_attach }
 
 lsp.nvim_workspace()
 lsp.setup()
@@ -50,6 +72,8 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+require("pubspec-assist").setup()
 
 require("flutter-tools").setup {
     ui = {
@@ -64,6 +88,15 @@ require("flutter-tools").setup {
     debugger = {
         enabled = true,
         run_via_dap = true,
+        regiseter_configurations = function(_)
+            require("dap").configurations.dart = { {
+                name = "KUBIK",
+                request = "launch",
+                type = "dart",
+            }
+            }
+            require("dap.ext.vscode").load_launchjs()
+        end
     },
     widget_guides = {
         enabled = true,

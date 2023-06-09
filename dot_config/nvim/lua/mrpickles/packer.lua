@@ -9,6 +9,9 @@ return require("packer").startup(function(use)
 
     use('nvim-treesitter/nvim-treesitter', { run = ":TSUpdate" })
 
+    use 'j-hui/fidget.nvim'
+    use 'akinsho/pubspec-assist.nvim'
+    use 'simrat39/rust-tools.nvim'
     use 'wbthomason/packer.nvim'
     use 'folke/tokyonight.nvim'
     use 'maxmx03/FluoroMachine.nvim'
