@@ -49,7 +49,7 @@ local opts = {
     server = {
         on_attach = my_on_attach,
         cmd = {
-            "rustup", "run", "stable", "rust-analyzer",
+            "rustup", "run", "nightly", "rust-analyzer",
         },
         settings = {
             ["rust-analyzer"] = {
