@@ -24,6 +24,11 @@ workspace=DP-2,1
 {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
 {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
 exec-once = discord
+windowrule = monitor 2, discord
+windowrule = workspace 6, discord
+
+exec-once = telegram-desktop
+windowrule = workspace 5, org.telegram.desktop
 {{ end -}}
 
 exec-once = hyprpaper
@@ -123,20 +128,12 @@ gestures {
 #windowrule=pseudo,abc
 #windowrule=monitor 0,xyz
 
-{{ if eq .chezmoi.hostname "archlinux-kirill" -}}
-{{ else if eq .chezmoi.hostname "arch-pc-home" -}}
-windowrule = monitor 2, discord
-windowrule = workspace 6, discord
-{{ end -}}
-
 windowrule=float,Rofi
 
 windowrule=float,Amberol
 windowrule=size 433 686,Amberol
 
 windowrule=size 460 996,scrcpy
-
-windowrule=workspace 5,telegramdesktop
 
 windowrule=float,pavucontrol
 windowrule=size 903 406,pavucontrol
