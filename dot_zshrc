@@ -54,10 +54,10 @@ alias lg=lazygit
 
 alias fla="flutter analyze"
 
+alias nd="unset yep; neovide .;exit"
 alias nv="nvim ."
 alias icat="kitty +kitten icat"
 alias py=python
-alias neovide="WINIT_UNIX_BACKEND=x11 neovide"
 
 
 alias n="nnn -de"
@@ -96,9 +96,9 @@ function zel {
 # alias flbai="flba && flutter install"
 # alias flc="flutter clean"
 
-if [[ -v yep ]]; then
-    eval "$(zellij setup --generate-auto-start zsh)"
-fi
+# if [[ -v yep ]]; then
+#     eval "$(zellij setup --generate-auto-start zsh)"
+# fi
 eval "$(starship init zsh)"
 
 # The following lines were added by compinstall
