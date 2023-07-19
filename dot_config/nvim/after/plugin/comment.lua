@@ -1,9 +1,10 @@
 local comment = require("Comment")
-require("Comment.api")comment.setup {
+require("Comment.api")
+comment.setup {
     toggler = {
-        line = '<C-_>'
+        line = '<C-/>'
     },
     opleader = {
-        line = '<C-_>'
+        line = '<C-/>'
     }
 }
