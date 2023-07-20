@@ -29,7 +29,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git rust docker flutter)
+plugins=(git rust docker flutter ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
