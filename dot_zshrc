@@ -1,27 +1,5 @@
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_STATE_HOME=$HOME/.local/state
-export XDG_CACHE_HOME=$HOME/.cache
-
-export ZSH="$XDG_DATA_HOME/oh-my-zsh"
-export EDITOR=nvim
-export TERM=xterm-256color
-export CARGO_HOME=$XDG_DATA_HOME/cargo
-export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
-export ANDROID_USER_HOME=$XDG_DATA_HOME/android
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export GOPATH=$XDG_DATA_HOME/go
-export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
-export LESSHISTFILE=$XDG_STATE_HOME/less/history
-export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
-export NUGET_PACKAGES=$XDG_CACHE_HOME/NuGetPackages
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java
-export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
-export RUSTUP_HOME=$XDG_DATA_HOME/rustup
-
-alias wget=wget --hsts-file=$XDG_DATA_HOME/wget-hsts
-
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+export XDG_CACHE_HOME=/home/kirill/.cache/
 
 ZSH_THEME="robbyrussell"
 
@@ -31,19 +9,19 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(git rust docker flutter ssh-agent)
 
-source $ZSH/oh-my-zsh.sh
+source /home/kirill/.oh-my-zsh/oh-my-zsh.sh
 
 function chpwd {
 	emulate -L zsh
 	ls
 }
-path+=/home/kirill/dev/AndroidSDK/platform-tools
-path+=/home/kirill/.bin
-path+=/home/kirill/.pub-cache/bin
-path+=/home/kirill/.local/bin
-path+=/home/kirill/dev/flutter/bin
-path+=$CARGO_HOME/bin
-path+=/home/kirill/.spicetify
+path+=~/dev/AndroidSDK/platform-tools
+path+=~/.bin
+path+=~/.pub-cache/bin
+path+=~/.local/bin
+path+=~/dev/flutter/bin
+path+=~/.cargo/bin
+path+=~/.spicetify
 
 #rust replacemnts
 alias ls=exa
@@ -56,7 +34,7 @@ alias fla="flutter analyze"
 
 alias nd="unset yep; neovide .;exit"
 alias nv="nvim ."
-alias icat="kitty +kitten icat"
+# alias icat="kitty +kitten icat"
 alias py=python
 
 
@@ -99,7 +77,7 @@ function zel {
 # if [[ -v yep ]]; then
 #     eval "$(zellij setup --generate-auto-start zsh)"
 # fi
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # The following lines were added by compinstall
 
