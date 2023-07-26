@@ -1,5 +1,6 @@
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export XDG_CACHE_HOME=/home/kirill/.cache/
+export EDITOR=nvim
 
 ZSH_THEME="robbyrussell"
 
@@ -32,7 +33,7 @@ alias lg=lazygit
 
 alias fla="flutter analyze"
 
-alias nd="unset yep; neovide .;exit"
+alias nd="unset yep; neovide . && exit"
 alias nv="nvim ."
 # alias icat="kitty +kitten icat"
 alias py=python
