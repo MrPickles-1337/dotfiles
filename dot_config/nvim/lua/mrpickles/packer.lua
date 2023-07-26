@@ -10,6 +10,7 @@ return require("packer").startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ":TSUpdate" })
 
     use { 'j-hui/fidget.nvim', tag = 'legacy' }
+    use 'romgrk/nvim-treesitter-context'
     use 'Saecki/crates.nvim'
     use 'akinsho/pubspec-assist.nvim'
     use 'simrat39/rust-tools.nvim'
