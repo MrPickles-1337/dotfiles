@@ -35,9 +35,9 @@ local my_on_attach = function(client, buffer)
 end
 
 
-require("neodev").setup {
-    library = { plugin = { "nvim-dap-ui" }, types = true }
-}
+-- require("neodev").setup {
+--     library = { plugin = { "nvim-dap-ui" }, types = true }
+-- }
 
 local opts = {
     inlay_hints = {
