@@ -37,6 +37,7 @@ alias nd="unset yep; neovide . && exit"
 alias nv="nvim ."
 # alias icat="kitty +kitten icat"
 alias py=python
+alias cm="cargo make"
 
 
 alias n="nnn -de"
