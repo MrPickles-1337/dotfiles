@@ -12,10 +12,6 @@ plugins=(git rust docker flutter ssh-agent)
 
 source /home/kirill/.oh-my-zsh/oh-my-zsh.sh
 
-function chpwd {
-	emulate -L zsh
-	ls
-}
 path+=~/dev/AndroidSDK/platform-tools
 path+=~/.bin
 path+=~/.pub-cache/bin
@@ -44,6 +40,11 @@ alias n="nnn -de"
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_PLUG="p:preview-tui"
 export SPLIT="v"
+
+function chpwd {
+    emulate -L zsh
+    ls
+}
 
 function ncd {
   if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1]; then
