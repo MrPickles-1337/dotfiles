@@ -1,6 +1,7 @@
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export XDG_CACHE_HOME=/home/kirill/.cache/
 export EDITOR=nvim
+export ANDROID_HOME=/home/kirill/dev/AndroidSDK/
 
 ZSH_THEME="robbyrussell"
 
@@ -35,6 +36,9 @@ alias nv="nvim ."
 alias py=python
 alias cm="cargo make"
 
+function 7ztar {
+    7z x $@ -so | 7z x -si -ttar
+}
 
 alias n="nnn -de"
 export NNN_FIFO=/tmp/nnn.fifo
