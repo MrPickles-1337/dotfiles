@@ -11,6 +11,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(git rust docker flutter ssh-agent)
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 source /home/kirill/.oh-my-zsh/oh-my-zsh.sh
 
 path+=~/dev/AndroidSDK/platform-tools
@@ -35,6 +37,7 @@ alias nv="nvim ."
 # alias icat="kitty +kitten icat"
 alias py=python
 alias cm="cargo make"
+alias zel=zellij
 
 function 7ztar {
     7z x $@ -so | 7z x -si -ttar
@@ -62,19 +65,6 @@ function ncd {
     rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
-
-function zel {
-        ZJ_SESSIONS=$(zellij list-sessions)
-        NO_SESSIONS=$(echo "${ZJ_SESSIONS}" | wc -l)
-
-        if [ "${NO_SESSIONS}" -ge 2 ]; then
-            zellij attach \
-            "$(echo "${ZJ_SESSIONS}"| sk)"
-        else
-            zellij attach -c
-        fi
-    }
-
 
 # alias flr="flutter run"
 # alias flba="flutter build apk --release"
