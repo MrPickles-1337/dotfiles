@@ -22,7 +22,7 @@ require("lazy").setup({
 
     {'nvim-treesitter/nvim-treesitter',  build = ":TSUpdate" },
 
-    { 'j-hui/fidget.nvim', version = 'legacy' },
+    { 'j-hui/fidget.nvim' },
     'romgrk/nvim-treesitter-context',
     'Saecki/crates.nvim',
     'akinsho/pubspec-assist.nvim',
