@@ -1,6 +1,0 @@
-[submodule "Hyprland"]
-	path = dot_setup-system/3rdparty/external_hyprland
-	url = https://github.com/hyprwm/Hyprland.git
-[submodule "hyprland-virtual-desktops"]
-	path = dot_setup-system/3rdparty/external_hyprland-virtual-desktops
-	url = https://github.com/levnikmyskin/hyprland-virtual-desktops.git
