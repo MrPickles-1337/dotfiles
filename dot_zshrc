@@ -32,6 +32,7 @@ alias lg=lazygit
 
 alias fla="flutter analyze"
 
+alias yeet="paru -Rsc"
 alias nd="unset yep; neovide . && exit"
 alias nv="nvim ."
 # alias icat="kitty +kitten icat"
