@@ -39,30 +39,6 @@ end
 --     library = { plugin = { "nvim-dap-ui" }, types = true }
 -- }
 
-local opts = {
-    inlay_hints = {
-        auto = true,
-        show_parameter_hints = false,
-        parameter_hints_prefix = "",
-        other_hints_prefix = "",
-    },
-    server = {
-        on_attach = my_on_attach,
-        cmd = {
-            "rustup", "run", "nightly", "rust-analyzer",
-        },
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy",
-                },
-            },
-        }
-    },
-}
-
-require("rust-tools").setup(opts)
-
 lsp.on_attach(my_on_attach)
 lspconfig.gopls.setup { on_attach = my_on_attach }
 

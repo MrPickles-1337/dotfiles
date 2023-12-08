@@ -15,18 +15,23 @@ vim.g.mapleader = " "
 require("lazy").setup({
 
     {
-        'nvim-telescope/telescope.nvim', version = '0.1.0',
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.0',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
-    {'nvim-treesitter/nvim-treesitter',  build = ":TSUpdate" },
+    { 'nvim-treesitter/nvim-treesitter',        build = ":TSUpdate" },
 
     { 'j-hui/fidget.nvim' },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^3', -- Recommended
+        ft = { 'rust' },
+    },
     'romgrk/nvim-treesitter-context',
     'Saecki/crates.nvim',
     'akinsho/pubspec-assist.nvim',
-    'simrat39/rust-tools.nvim',
     'folke/tokyonight.nvim',
     'maxmx03/FluoroMachine.nvim',
     'nvim-treesitter/playground',
@@ -40,7 +45,7 @@ require("lazy").setup({
     'folke/neodev.nvim',
 
     { 'akinsho/flutter-tools.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+    { "rcarriga/nvim-dap-ui",       dependencies = { "mfussenegger/nvim-dap" } },
     'arkav/lualine-lsp-progress',
     {
         'nvim-lualine/lualine.nvim'
