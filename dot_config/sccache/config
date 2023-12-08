@@ -1,3 +1,2 @@
 [cache.disk]
-dir = "/home/kirill/.cache/sccache/"
 size = 32212254720
