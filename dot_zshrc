@@ -32,8 +32,11 @@ alias lg=lazygit
 
 alias fla="flutter analyze"
 
+alias bw=rbw
+
+alias gclean="git clean -fxd"
 alias yeet="paru -Rsc"
-alias nd="unset yep; neovide . && exit"
+alias nd="neovide ."
 alias nv="nvim ."
 # alias icat="kitty +kitten icat"
 alias py=python
