@@ -8,11 +8,14 @@
 # For a full list, see the wiki (basic and advanced configuring)
 #
 
+source=~/.config/hypr/execs.conf
+
 {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
 
 monitor=HDMI-A-3,1920x1080@75,0x0,1
 monitor=DP-1,1920x1080@60,1920x0,1
-workspace=HDMI-A-3,1
+workspace=1,monitor:HDMI-A-3,default:true
+workspace=4,monitor:DP-1,default:true
 
 {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
 
@@ -24,22 +27,6 @@ workspace=DP-1,2
 workspace=HDMI-A-1,5
 
 {{ end -}}
-
-{{ if eq .chezmoi.hostname "archlinux-kirill" -}}
-{{ else if eq .chezmoi.hostname "arch-pc-home" -}}
-exec-once = discord
-windowrule = monitor 2, discord
-windowrule = workspace 6, discord
-
-exec-once = telegram-desktop
-windowrule = workspace 5, org.telegram.desktop
-{{ end -}}
-
-exec-once = /home/kirill/.cargo/bin/swww init
-exec-once = dunst
-exec-once = waybar
-exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
 
