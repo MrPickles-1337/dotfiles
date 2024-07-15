@@ -16,7 +16,6 @@ require("lazy").setup({
 
     {
         'nvim-telescope/telescope.nvim',
-        version = '0.1.0',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -26,7 +25,7 @@ require("lazy").setup({
     { 'j-hui/fidget.nvim' },
     {
         'mrcjkb/rustaceanvim',
-        version = '^3', -- Recommended
+        version = '^4', -- Recommended
         ft = { 'rust' },
     },
     'romgrk/nvim-treesitter-context',
