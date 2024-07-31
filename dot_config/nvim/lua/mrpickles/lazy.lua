@@ -25,7 +25,7 @@ require("lazy").setup({
     { 'j-hui/fidget.nvim' },
     {
         'mrcjkb/rustaceanvim',
-        version = '^4', -- Recommended
+        version = '^5', -- Recommended
         ft = { 'rust' },
     },
     'romgrk/nvim-treesitter-context',
