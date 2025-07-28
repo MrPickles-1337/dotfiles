@@ -1,0 +1,34 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-j": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-\\": "workspace::ToggleBottomDock",
+      "ctrl-j": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-\\": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-\\": "workspace::ToggleBottomDock"
+    }
+  }
+]
