@@ -8,6 +8,8 @@
 # For a full list, see the wiki (basic and advanced configuring)
 #
 
+ecosystem:no_update_news = true
+
 source=~/.config/hypr/execs.conf
 
 {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
@@ -62,6 +64,14 @@ input {
     repeat_delay=200
     repeat_rate=80
 
+    {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
+    sensitivity=1.0 # for mouse cursor
+    {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
+    sensitivity=0.6 # for mouse cursor
+    {{ end -}}
+
+    #apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+
     follow_mouse=1
 
     left_handed=false
@@ -72,20 +82,16 @@ input {
 }
 
 general {
-    {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
-    sensitivity=1.0 # for mouse cursor
-    {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
-    sensitivity=0.6 # for mouse cursor
-    {{ end -}}
 
     gaps_in=5
     gaps_out=20
     border_size=2
     col.active_border=rgb(45138e) rgb(190f92)
     col.inactive_border=0x66333333
+}
 
-    apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-
+misc {
+    enable_anr_dialog = false
 }
 
 decoration {
@@ -117,17 +123,17 @@ gestures {
     workspace_swipe=no
 }
 
-windowrule=float,Rofi
+windowrule=float,class:Rofi
 
-windowrule=float,Amberol
-windowrule=size 433 686,Amberol
+windowrule=float,class:Amberol
+windowrule=size 433 686,class:Amberol
 
-windowrule=size 460 996,scrcpy
+windowrule=size 460 996,class:scrcpy
 
-windowrule=float,pavucontrol
-windowrule=size 903 406,pavucontrol
+windowrule=float,class:pavucontrol
+windowrule=size 903 406,class:pavucontrol
 
-windowrule=float,OpenTabletDriver.UX.Gtk
+windowrule=float,class:OpenTabletDriver.UX.Gtk
 
 $mainMod = Super
 
@@ -137,9 +143,9 @@ bind = $mainMod, RETURN, exec, /home/kirill/.cargo/bin/wezterm
 {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
 bind = $mainMod, RETURN, exec, kitty
 {{ end -}}
-bind = $mainMod, W, exec, firefox
+bind = $mainMod, W, exec, zen-browser
 bind = $mainMod SHIFT, W, exec, swww clear
-bind = $mainMod, T, exec, telegram-desktop
+bind = $mainMod, T, exec, Telegram
 bind = $mainMod, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, dolphin

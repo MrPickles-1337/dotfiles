@@ -9,27 +9,32 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git rust docker flutter ssh-agent)
+plugins=(git rust docker flutter ssh-agent zsh-vi-mode)
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source /home/kirill/.oh-my-zsh/oh-my-zsh.sh
 
 path+=~/dev/AndroidSDK/platform-tools
+path+=~/dev/AndroidSDK/cmdline-tools/latest/bin
 path+=~/.bin
 path+=~/.pub-cache/bin
 path+=~/.local/bin
-path+=~/dev/flutter/bin
+path+=~/fvm/default/bin
 path+=~/.cargo/bin
 path+=~/.spicetify
 
 #rust replacemnts
-alias ls=exa
+alias ls=eza
 alias du=dust
 alias cat=bat
 alias grep=rg
 alias lg=lazygit
+alias flutter="fvm flutter"
+alias dart="fvm dart"
 
+alias dfb="dart run build_runner build --delete-conflicting-outputs"
+alias dfw="dart run build_runner watch --delete-conflicting-outputs"
 alias fla="flutter analyze"
 
 alias bw=rbw
@@ -42,6 +47,12 @@ alias nv="nvim ."
 alias py=python
 alias cm="cargo make"
 alias zel=zellij
+alias scp="rsync -ah --info=progress2"
+
+back ()
+{
+    $@ > /dev/null &!
+}
 
 function 7ztar {
     7z x $@ -so | 7z x -si -ttar
@@ -89,3 +100,9 @@ zstyle :compinstall filename '/home/kirill/.zshrc'
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 # End of lines added by compinstall
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/kirill/.dart-cli-completion/zsh-config.zsh ]] && . /home/kirill/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
