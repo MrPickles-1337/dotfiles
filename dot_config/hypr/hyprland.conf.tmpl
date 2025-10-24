@@ -157,11 +157,7 @@ windowrule=float,class:OpenTabletDriver.UX.Gtk
 $mainMod = Super
 
 # example binds
-{{ if eq .chezmoi.hostname "archlinux-kirill" -}}
 bind = $mainMod, RETURN, exec, /home/kirill/.cargo/bin/alacritty
-{{ else if eq .chezmoi.hostname "arch-pc-home" -}}
-bind = $mainMod, RETURN, exec, kitty
-{{ end -}}
 #bind = $mainMod, J, exec, wl-kbptr -o modes=floating,click -o mode_floating.source=detect
 bind = $mainMod, W, exec, uwsm app -- brave
 bind = $mainMod SHIFT, W, exec, swww clear
@@ -175,7 +171,6 @@ bind = $mainMod, D, exec, pkill -9 rofi; ~/.config/rofi/launchers/type-1/executa
 bind = $mainMod SHIFT, L, exec, hyprlock
 bind = $mainMod SHIFT, s, exec, grimblast copy area
 bind = $mainMod, S, exec, uwsm app -- scrcpy
-bind = $mainMod, R, exec, /home/kirill/.cargo/bin/swww clear; killall wlp_carusel
 
 bind = $mainMod SHIFT, V, exec, uwsm app -- pavucontrol
 
