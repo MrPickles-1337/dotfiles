@@ -1,14 +1,7 @@
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lspconfig_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
-)
-
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
-        local optes = {buffer = event.buf}
+        local optes = { buffer = event.buf }
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
@@ -17,7 +10,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-        vim.keymap.set("n", "<leader>lca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<C-.>", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
         -- vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
@@ -28,7 +21,7 @@ local cmp = require('cmp')
 
 cmp.setup({
     sources = {
-        {name = 'nvim_lsp'},
+        { name = 'nvim_lsp' },
     },
     snippet = {
         expand = function(args)
@@ -46,10 +39,38 @@ cmp.setup({
 })
 
 
-require('lspconfig').lua_ls.setup({})
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+    callback = function(args)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            callback = function()
+                vim.lsp.buf.format { async = false, id = args.data.client_id }
+            end,
+        })
+    end
+})
+
+-- vim.lsp.config('lua-language-server')
+vim.lsp.config['luals'] = {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = {
+        '.luarc.json',
+        '.luarc.jsonc',
+        '.luacheckrc',
+        '.stylua.toml',
+        'stylua.toml',
+        'selene.toml',
+        'selene.yml',
+        '.git',
+    },
+}
+vim.lsp.enable('luals')
 --require('lspconfig').rust_analyzer.setup({})
 require("lsp-format").setup {}
 require("pubspec-assist").setup()
+require("mason").setup()
 
 vim.diagnostic.config({
     virtual_text = true
@@ -81,15 +102,17 @@ require("flutter-tools").setup {
     widget_guides = {
         enabled = true,
     },
-    outline = {
-        auto_open = true,
-        open_cmd = "set splitright | 50vnew"
-    },
+    -- outline = {
+    --     auto_open = true,
+    --     open_cmd = "set splitright | 50vnew"
+    -- },
     lsp = {
-        on_attach = my_on_attach,
         color = {
             enabled = true,
             virtual_text = true,
+        },
+        settings = {
+            enableSnippets = true
         }
     },
 }

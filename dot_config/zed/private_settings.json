@@ -7,6 +7,25 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "languages": {
+    "Dart": {
+      "tab_size": 2,
+      "inlay_hints": {
+        "show_background": false,
+        "enabled": false
+      },
+      "indent_guides": {
+        "background_coloring": "disabled",
+        "coloring": "indent_aware",
+        "line_width": 1,
+        "active_line_width": 2
+      }
+    }
+  },
+  "inlay_hints": {
+    "show_background": false,
+    "enabled": false
+  },
   "theme": "Tokyo Night",
   "telemetry": {
     "diagnostics": false,
@@ -35,8 +54,7 @@
       "padding": 4,
       "min_column": 0,
       "max_severity": "hint"
-    },
-    "cargo": null
+    }
   },
   "vim": {},
   "ui_font_size": 16,
@@ -56,6 +74,19 @@
     "cargotom": {
       "initialization_options": {
         "offline": false
+      }
+    },
+    "dart": {
+      "initialization_options": {
+        "closingLabels": true,
+        "flutterOutline": true
+      },
+      "settings": {
+        "completeFuncnCalls": true
+      },
+      "binary": {
+        "path": "/usr/bin/fvm",
+        "arguments": ["dart", "language-server", "--protocol=lsp"]
       }
     }
   },

@@ -109,18 +109,37 @@ decoration {
 
 animations {
     enabled = true
-    animation=windows,1,7,default
-    animation=border,1,10,default
-    animation=fade,1,10,default
-    animation=workspaces,1,6,default
+
+    # Animation curves
+    bezier = specialWorkSwitch, 0.05, 0.7, 0.1, 1
+    bezier = emphasizedAccel, 0.3, 0, 0.8, 0.15
+    bezier = emphasizedDecel, 0.05, 0.7, 0.1, 1
+    bezier = standard, 0.2, 0, 0, 1
+
+    # Animation configs
+    animation = layersIn, 1, 5, emphasizedDecel, slide
+    animation = layersOut, 1, 4, emphasizedAccel, slide
+    animation = fadeLayers, 1, 5, standard
+
+    animation = windowsIn, 1, 5, emphasizedDecel
+    animation = windowsOut, 1, 3, emphasizedAccel
+    animation = windowsMove, 1, 6, standard
+    animation = workspaces, 1, 5, standard
+
+    animation = specialWorkspace, 1, 4, specialWorkSwitch, slidefadevert 15%
+
+    animation = fade, 1, 6, standard
+    animation = fadeDim, 1, 6, standard
+    animation = border, 1, 6, standard
+
+    #animation=windows,1,7,default
+    #animation=border,1,10,default
+    #animation=fade,1,10,default
+    #animation=workspaces,1,6,default
 }
 
 dwindle {
     pseudotile=0 # enable pseudotiling on dwindle
-}
-
-gestures {
-    workspace_swipe=no
 }
 
 windowrule=float,class:Rofi
@@ -139,31 +158,30 @@ $mainMod = Super
 
 # example binds
 {{ if eq .chezmoi.hostname "archlinux-kirill" -}}
-bind = $mainMod, RETURN, exec, /home/kirill/.cargo/bin/wezterm
+bind = $mainMod, RETURN, exec, /home/kirill/.cargo/bin/alacritty
 {{ else if eq .chezmoi.hostname "arch-pc-home" -}}
 bind = $mainMod, RETURN, exec, kitty
 {{ end -}}
-bind = $mainMod, W, exec, zen-browser
+#bind = $mainMod, J, exec, wl-kbptr -o modes=floating,click -o mode_floating.source=detect
+bind = $mainMod, W, exec, uwsm app -- brave
 bind = $mainMod SHIFT, W, exec, swww clear
-bind = $mainMod, T, exec, Telegram
+bind = $mainMod, T, exec, uwsm app -- Telegram
 bind = $mainMod, Q, killactive,
 bind = $mainMod, M, exit,
-bind = $mainMod, E, exec, dolphin
+bind = $mainMod, E, exec, uwsm app -- nautilus
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, F, fullscreen,
 bind = $mainMod, D, exec, pkill -9 rofi; ~/.config/rofi/launchers/type-1/executable_launcher.sh
-bind = $mainMod, P, pseudo,
-bind = $mainMod SHIFT, L, exec, swaylock --screenshots --clock --indicator --fade-in 1 --effect-blur 5x5
+bind = $mainMod SHIFT, L, exec, hyprlock
 bind = $mainMod SHIFT, s, exec, grimblast copy area
-bind = $mainMod, S, exec, scrcpy
+bind = $mainMod, S, exec, uwsm app -- scrcpy
 bind = $mainMod, R, exec, /home/kirill/.cargo/bin/swww clear; killall wlp_carusel
 
-bind = $mainMod SHIFT, V, exec, pavucontrol
+bind = $mainMod SHIFT, V, exec, uwsm app -- pavucontrol
 
 bind = $mainMod, A, exec, hyprctl keyword input:kb_layout ru
 bind = $mainMod, Cyrillic_ef, exec, hyprctl keyword input:kb_layout us
 
-bind = $mainMod SHIFT, O, exec, code /home/kirill/src/kubik_flutter
 bind = $mainMod, C, exec, wl-color-picker 
 
 bind = $mainMod, left, movefocus, l
@@ -189,6 +207,7 @@ bind = $mainMod, 7, workspace, 7
 bind = $mainMod, 8, workspace, 8
 bind = $mainMod, 9, workspace, 9
 bind = $mainMod, 0, workspace, 10
+bind = $mainMod, P, togglespecialworkspace
 
 bind = $mainMod SHIFT, 1, movetoworkspace, 1
 bind = $mainMod SHIFT, 2, movetoworkspace, 2
@@ -200,6 +219,7 @@ bind = $mainMod SHIFT, 7, movetoworkspace, 7
 bind = $mainMod SHIFT, 8, movetoworkspace, 8
 bind = $mainMod SHIFT, 9, movetoworkspace, 9
 bind = $mainMod SHIFT, 0, movetoworkspace, 10
+bind = $mainMod SHIFT, P, movetoworkspace, special
 
 bind = $mainMod, mouse_down, workspace, e+1
 bind = $mainMod, mouse_up, workspace, e-1

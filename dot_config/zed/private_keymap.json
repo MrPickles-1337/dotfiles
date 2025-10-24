@@ -1,0 +1,27 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-j": null
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Workspace || Editor || Terminal",
+    "bindings": {
+      "ctrl-\\": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-`": null
+    }
+  }
+]

@@ -25,7 +25,7 @@ require("lazy").setup({
     { 'j-hui/fidget.nvim' },
     {
         'mrcjkb/rustaceanvim',
-        version = '^5', -- Recommended
+        version = '^6',
         ft = { 'rust' },
     },
     'romgrk/nvim-treesitter-context',
@@ -49,28 +49,21 @@ require("lazy").setup({
     {
         'nvim-lualine/lualine.nvim'
     },
-    { 'romgrk/barbar.nvim', dependencies = 'nvim-web-devicons' },
+    { 'romgrk/barbar.nvim',               dependencies = 'nvim-web-devicons' },
 
 
+    { 'neovim/nvim-lspconfig' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-nvim-lua' },
     {
-        'VonHeikemen/lsp-zero.nvim',
-        dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            { 'MrPickles1324/friendly-snippets' },
-        }
-    },
+        'L3MON4D3/LuaSnip',
+        dependencies = { 'MrPickles1324/friendly-snippets' },
+        build = "make install_jsregexp",
+    }
 })
